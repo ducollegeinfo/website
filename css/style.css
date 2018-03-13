@@ -13,22 +13,47 @@ h1 {
 }
 
 h2 {
+    font-family: "Maven Pro", "Arial";
+    font-weight: medium;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    border-bottom-style: dotted;
+    border-color: grey;
+    border-bottom-width: 1px;
+}
+
+.left-description {
+    width: 370px;
+    border-style: dotted;
+    border-color: grey;
+    border-width: 0 1px 0 0;
+    padding-right: 30px;
+}
+
+.left-description-text {
+    font-family: "Maven Pro", "Arial";
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+    margin: 20px 0 10px 0;
 }
 
 .content {
-    max-width: 1024px;
+    max-width: 800px;
     margin: auto;
 }
 
 .top-banner {
-    width: 1024px;
+    width: 800px;
     background-color: black;
     margin: 10px 0 10px 0;
     padding: 5px 20px 10px 10px;
 }
 
 .top-banner ul {
-    width: 1000px;
+    width: 780px;
 }
 
 .top-banner li {
