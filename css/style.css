@@ -10,6 +10,7 @@ h1 {
     font-size: 50px;
     font-weight: normal;
     text-transform: uppercase;
+    margin-bottom: 15px;
 }
 
 h2 {
@@ -17,7 +18,7 @@ h2 {
     font-weight: medium;
     font-size: 18px;
     text-transform: uppercase;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     border-bottom-style: dotted;
     border-color: grey;
     border-bottom-width: 1px;
@@ -38,6 +39,10 @@ h2 {
     line-height: 140%;
     text-align: justify;
     margin: 20px 0 10px 0;
+}
+
+.right-description {
+    float: right;
 }
 
 .content {
@@ -88,4 +93,26 @@ h2 {
 .top-banner-lang {
     float: right;
     background-color: black;
+}
+
+img {
+    float: left;
+    margin: 0 5px 5px 0;
+}
+
+.small-square {
+    height: 185px;
+    width: 185px;
+    object-fit: contain;
+}
+
+.small-rect {
+    height: 190px;
+    width: 375px;
+    object-fit: fill;
+}
+
+.photos {
+    height: 400px;
+    margin: 0 0 20px 0;
 }
