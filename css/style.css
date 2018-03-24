@@ -24,6 +24,18 @@ h2 {
     border-bottom-width: 1px;
 }
 
+h3 {
+    font-family: "Maven Pro", "Arial";
+    font-weight: normal;
+    font-size: 14px;
+}
+
+#airbnb_logo {
+    margin: 20px 0 20px 0;
+    width: auto;
+    height: auto;
+}
+
 .short-description {
     width: 370px;
     height 400px;
@@ -179,8 +191,11 @@ body {
     background-color: black;
 }
 
-img {
+.img_float_left {
     float: left;
+}
+
+img {
     margin: 0 5px 5px 0;
 }
 
