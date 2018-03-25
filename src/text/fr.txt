@@ -1,0 +1,3 @@
+SHORT_DESC_1="À 20 minutes de Strasbourg, Bas-Rhin, sur la route des vins de l'Alsace, au coeur des Vosges, charmant appartement dans une ancienne maison alsacienne à colombages au coeur de centre-ville de la petite communauté de Barr."
+SHORT_DESC_2="Poutres apparentes massives et meubles anciens donnent son charme typique au logis."
+SHORT_DESC_3="Magnifique vue, du séjour, sur les vignes, et de la chambre, sur le Château du Haut-Andlau et sur la ville de Barr elle-même."
