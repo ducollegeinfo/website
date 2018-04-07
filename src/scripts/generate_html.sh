@@ -26,17 +26,27 @@ for language in ${languages}; do
 
     for src_html_file in ${src_html_files}; do
 
-        html_filename="$(basename ${src_html_file})"
+        src_html_filename=$(basename ${src_html_file})
+        tmpfile=${tmpdir}/${language}-"${src_html_filename}"
+
+        cp ${src_html_file} ${tmpfile}
+
+        # get filename for a language from the source file if present, else
+        # keep the source name
+        html_filename=$(grep -E "^${language}=" ${src_html_file} | cut -d= -f2)
+        [ x${html_filename} = x ] && html_filename=${src_html_filename}
+
+        # remove two-letter language lines from html file
+        sed -e '/^[a-z][a-z]=/d' ${src_html_file} > ${tmpfile}
+
         html_file="${webpage_dir}"/html/${language}/"${html_filename}"
-        tmpfile=${tmpdir}/${language}-"${html_filename}"
 
         printf "generating '%s' in '%s' language\n" "${html_file}" "${language}"
 
-        cp ${src_html_file} ${tmpfile}
         for subst_tag in ${subst_tags}; do
             subst_text="$(eval echo \${${subst_tag}})"
-            printf "substituting '%s' for '%s'\n" "${subst_tag}" "${subst_text}"
-            sed -e "s/\[${subst_tag}\]/${subst_text}/" ${tmpfile} > ${tmpfile}.1
+            printf "substituting '%s' by '%s'\n" "${subst_tag}" "${subst_text}"
+            sed -e "s|\[${subst_tag}\]|${subst_text}|g" ${tmpfile} > ${tmpfile}.1
             mv ${tmpfile}.1 ${tmpfile}
         done
         mv ${tmpfile} ${html_file}
