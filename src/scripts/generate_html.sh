@@ -6,7 +6,7 @@
 [ -d "${1}" ] || { echo "'${1}' is not a directory"; exit 1; }
 [ -f "${1}"/.webpage ] || { echo "'${1}' is not a webpage directory"; exit 1; }
 
-webpage_dir="${1}"
+webpage_dir="$(realpath ${1})"
 srcdir="${webpage_dir}"/src
 
 languages=$(for language_file in "${srcdir}"/text/*.txt; do basename ${language_file} .txt; done)
