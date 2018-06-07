@@ -1,0 +1,217 @@
+html, body, h1, h2, h3, p, ol, ul, li, a {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+h1 {
+    color: black;
+    font-family: "Anton", "Oswald", sans-serif;
+    font-size: 42px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-family: "Maven Pro", "Arial";
+    font-weight: medium;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    border-bottom-style: dotted;
+    border-color: grey;
+    border-bottom-width: 1px;
+}
+
+h3 {
+    font-family: "Maven Pro", "Arial";
+    font-weight: normal;
+    font-size: 14px;
+}
+
+#airbnb_logo {
+    margin: 20px 0 20px 0;
+    width: auto;
+    height: auto;
+}
+
+.short-description {
+    width: 370px;
+    height 400px;
+    padding-right: 30px;
+    margin-top: 20px;
+    float: left;
+}
+
+.short-description-text {
+    font-family: "Maven Pro", "Arial";
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+    margin: 20px 0 10px 0;
+}
+
+/* need div to have a block around the <a> element to get the top-bottom margin */
+#more-details-div {
+    margin: 50px 100px 0 100px;
+}
+
+#more-details {
+    font-family: "Maven Pro", "Arial";
+    color: white;
+    background-color: black;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#more-details:hover {
+    background-color: red;
+    border-color: red;
+}
+
+.bio {
+    width: 390px;
+    height: 400px;
+    border-style: dotted;
+    border-color: grey;
+    border-width: 0 0 0 1px;
+    margin-top: 20px;
+    float: left;
+}
+
+.bio-headshots {
+    width: 370px;
+    height: 160px;
+}
+
+.headshot {
+    float: left;
+    border-style: solid;
+    border-width: 10px;
+    border-color: white;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+#hotes {
+    width: 100%;
+    margin: 0 5px 0 5px;
+}
+
+.hote {
+    float: left;
+    width: 45%;
+    margin: 0 5px 0 5px;
+}
+
+.hote-name {
+    font-family: "Maven Pro", "Arial";
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 140%;
+    text-align: center;
+}
+
+.hote-bio {
+    font-family: "Maven Pro", "Arial";
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 140%;
+    text-align: justify;
+}
+
+body {
+    max-width: 800px;
+    margin: auto;
+}
+
+#hotes-entete {
+    font-family: "Maven Pro", "Arial";
+    font-size: 24px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.hotes-text {
+    font-family: "Maven Pro", "Arial";
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 140%;
+    text-align: justify;
+    margin: 20px 0 0 20px;
+}
+
+.top-banner {
+    width: 800px;
+    background-color: black;
+    margin: 10px 0 10px 0;
+    padding: 5px 20px 10px 10px;
+}
+
+.top-banner ul {
+    width: 780px;
+}
+
+.top-banner li {
+    display: inline;
+}
+
+.top-banner a {
+    text-transform: uppercase;
+    color: white;
+    padding: 0 20px 10px 10px;
+    border-style: solid;
+    border-color: blue;
+    border-width: 0 0 5px 0;
+    font-family: "Oswald", "Anton", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    text-decoration: none;
+    background-color: blue;
+    margin: 0 0 0 20px;
+}
+
+.top-banner a:hover {
+    background-color: red;
+    border-color: red;
+}
+
+.top-banner-nav {
+    background-color: blue;
+    margin: 30px 0 0 20px;
+}
+
+.top-banner-lang {
+    float: right;
+    background-color: black;
+}
+
+.img_float_left {
+    float: left;
+}
+
+img {
+    margin: 0 5px 5px 0;
+}
+
+.small-square {
+    height: 185px;
+    width: 185px;
+    object-fit: contain;
+}
+
+.small-rect {
+    height: 190px;
+    width: 375px;
+    object-fit: fill;
+}
+
+.photos {
+    height: 400px;
+    margin: 0 0 20px 0;
+}
