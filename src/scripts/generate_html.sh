@@ -1,12 +1,31 @@
 #!/bin/bash
 
-# ${1}: webpage base dir location
+version="1.0.0"
 
-[ x"${1}" != x ] || { echo "no src directory specified"; exit 1; }
-[ -d "${1}" ] || { echo "'${1}' is not a directory"; exit 1; }
-[ -f "${1}"/.webpage ] || { echo "'${1}' is not a webpage directory"; exit 1; }
+type id &>/dev/null || { printf "'%s' required but not found in PATH\n" id 1>&2; exit 1; }
+me=$(id -un)
+utils=${HOME}/lib/bash_utils
+[ -e ${utils} ] && . ${utils} || { printf "clone and setup env git repo for ${me}!\n" 1>&2 ; exit 1; }
 
-webpage_dir="$(realpath ${1})"
+webpage_dir=""
+clean="n"
+
+optstr="w:c"
+usage_opt_str="-w <webpage dir> [-c]"
+handle_opts() {
+    case ${opt} in
+        w) webpage_dir="${OPTARG}"; return 0;;
+        c) clean="y"; return 0;;
+    esac
+    return 1
+}
+
+get_opts $@
+
+[ x"${webpage_dir}" != x ] || { echo "no src directory specified"; exit 1; }
+[ -d "${webpage_dir}" ] || { echo "'${webpage_dir}' is not a directory"; exit 1; }
+[ -f "${webpage_dir}"/.webpage ] || { echo "'${webpage_dir}' is not a webpage directory"; exit 1; }
+
 srcdir="${webpage_dir}"/src
 
 languages=$(for language_file in "${srcdir}"/text/*.txt; do basename ${language_file} .txt; done)
@@ -14,7 +33,8 @@ languages=$(for language_file in "${srcdir}"/text/*.txt; do basename ${language_
 tmpdir=$(mktemp -d)
 for language in ${languages}; do
 
-    printf "generating '%s' language html files\n" "${language}"
+    [ ${clean} = y ] && action="removing" || action="generating"
+    printf "%s '%s' language html files\n" "${action}" "${language}"
 
     language_file="${srcdir}"/text/${language}.txt
     subst_tags=$(cut -d= -f1 ${language_file})
@@ -29,17 +49,23 @@ for language in ${languages}; do
         src_html_filename=$(basename ${src_html_file})
         tmpfile=${tmpdir}/${language}-"${src_html_filename}"
 
-        cp ${src_html_file} ${tmpfile}
-
         # get filename for a language from the source file if present, else
         # keep the source name
         html_filename=$(grep -E "^${language}=" ${src_html_file} | cut -d= -f2)
         [ x${html_filename} = x ] && html_filename=${src_html_filename}
 
+        html_file="${webpage_dir}"/html/${language}/"${html_filename}"
+
+        if [ ${clean} = y ]; then
+            printf "removing generated file '%s'\n" "${html_file}"
+            rm -f "${html_file}"
+            continue
+        fi
+
+        cp ${src_html_file} ${tmpfile}
+
         # remove two-letter language lines from html file
         sed -e '/^[a-z][a-z]=/d' ${src_html_file} > ${tmpfile}
-
-        html_file="${webpage_dir}"/html/${language}/"${html_filename}"
 
         printf "generating '%s' in '%s' language\n" "${html_file}" "${language}"
 
